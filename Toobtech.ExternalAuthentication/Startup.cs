@@ -41,7 +41,12 @@ namespace Toobtech.ExternalAuthentication
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-
+            services.AddAuthentication()
+    //.AddMicrosoftAccount(microsoftOptions => { ... })
+    .AddGoogle(googleOptions => { googleOptions.ClientId = "739536985732-p2kgr2fni9hkidif095fpcftm60f23oo.apps.googleusercontent.com";
+        googleOptions.ClientSecret = "OVioAXvOFQjRhpGDpp6i858Q"; });
+    //.AddTwitter(twitterOptions => { ... })
+    //.AddFacebook(facebookOptions => { ... });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
